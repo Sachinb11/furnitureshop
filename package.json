@@ -1,0 +1,22 @@
+{
+  "name": "furnishop",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev":         "turbo run dev --parallel",
+    "build":       "turbo run build",
+    "lint":        "turbo run lint",
+    "test":        "turbo run test",
+    "db:seed":     "cd apps/api && npm run seed",
+    "docker:up":   "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "setup":       "npm install && docker-compose up -d && sleep 5 && npm run db:seed"
+  },
+  "devDependencies": {
+    "turbo": "^1.13.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm":  ">=10.0.0"
+  }
+}
